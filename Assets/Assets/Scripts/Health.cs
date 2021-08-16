@@ -5,24 +5,23 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    int startingHealth = 5;
+    int startHealth = 5;
+    [SerializeField]
     int currentHealth;
-    // Start is called before the first frame update
     private void OnEnable()
     {
-        currentHealth = startingHealth;
+        currentHealth = startHealth;
     }
-    // Update is called once per frame
-    public void TakeDamage(int damageamount)
+    public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damageamount;
-        if(currentHealth<=0)
+        currentHealth -= damageAmount;
+        if (currentHealth <= 0)
         {
             Die();
         }
     }
-    public void Die()
+    private void Die()
     {
-
+        gameObject.SetActive(false);
     }
 }
